@@ -38,9 +38,9 @@
             <div class="card-header text-center"><a href="dashboard.html"><div class="h1 text-primary font-weight-bold" style="font-family: 'Lobster Two', cursive;">Light-Up</div></a><span class="splash-description">Please enter
                     your user information.</span></div>
             <div class="card-body">
-                <form>
+                <form action="" method="POST" id="loginform">
                     <div class="form-group">
-                        <input class="form-control form-control-lg" id="username" type="text" placeholder="Username"
+                        <input class="form-control form-control-lg" id="email" type="text" placeholder="email"
                             autocomplete="off">
                     </div>
                     <div class="form-group">
@@ -88,6 +88,47 @@
     <!-- Optional JavaScript -->
     <script src="../assets/vendor/jquery/jquery-3.3.1.min.js"></script>
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <body>
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="/__/firebase/7.13.2/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="/__/firebase/7.13.2/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="/__/firebase/7.13.2/firebase-auth.js"></script>
+    <script src="/__/firebase/7.13.2/firebase-firestore.js"></script>
+
+    <script src="/__/firebase/init.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-firestore.js"></script>
+    <script>
+        const config = {
+            apiKey: "AIzaSyB7MbhzQ2yohv7MOjLy0rvx2n7DHvv8f5c",
+            authDomain: "light-up-eb627.firebaseapp.com",
+            databaseURL: "https://light-up-eb627.firebaseio.com",
+            projectId: "light-up-eb627",
+            storageBucket: "light-up-eb627.appspot.com",
+            messagingSenderId: "478749966375",
+            appId: "1:478749966375:web:947b648e159b438dfd0e02",
+            measurementId: "G-T3C0GSGT7B"
+        };
+        firebase.initializeApp(config);
+        // making refs 
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        //update firestor settings
+
+        db.settings({timestampsInSnapshots: true })
+    </script>
+
+    <script src="auth.js"></script>
+      </body>
+
 </body>
 
 </html>
