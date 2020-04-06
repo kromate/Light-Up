@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/libs/css/style.css">
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="assets/vendor/charts/chartist-bundle/chartist.css">
+    <link rel="stylesheet" href="assets/vendor/charts/morris-bundle/morris.css">
+    <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
+    <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+
+    <title>Light-Up</title>
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header">
+            <nav class="navbar navbar-expand-sm bg-white fixed-top">
+                <a class="navbar-brand" href="dashboard.html">Light-UP</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+
+
+                        <li class="nav-item">
+                            <div id="custom-search" class="top-search-bar">
+                                <input class="form-control" type="text" placeholder="Search..">
+                            </div>
+                        </li>
+
+
+                        <li class="nav-item dropdown nav-user">
+                            <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                    src="assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
+                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
+                                aria-labelledby="navbarDropdownMenuLink2">
+                                <div class="nav-user-info">
+                                    <h5 class="mb-0 text-white nav-user-name" id="accName"></h5>
+                                    <span class="status"></span><span class="ml-2">Available</span>
+                                </div>
+                                <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i><button
+                                        id="logout" class='border-'> Logout </button></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content ">
+                    <!-- ============================================================== -->
+                    <!-- pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="row">
+
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- end pageheader  -->
+                    <!-- ============================================================== -->
+                    <div class="ecommerce-widget">
+
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="text-muted">Monthly Consumption</h5>
+                                        <div class="metric-value d-inline-block">
+                                            <h1 class="mb-1">1200Kw/h</h1>
+                                        </div>
+                                        <div
+                                            class="metric-label d-inline-block float-right text-danger font-weight-bold">
+                                            <span><i class="fa fa-fw fa-arrow-up"></i></span><span>5.86%</span>
+                                        </div>
+                                    </div>
+                                    <div id="sparkline-revenue"></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="text-muted">Weekly Comsumption</h5>
+                                        <div class="metric-value d-inline-block">
+                                            <h1 class="mb-1">200Kw/h</h1>
+                                        </div>
+                                        <div
+                                            class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                            <span><i class="fa fa-fw fa-arrow-down"></i></span><span>5.86%</span>
+                                        </div>
+                                    </div>
+                                    <div id="sparkline-revenue2"></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="text-muted">Daily Consumption</h5>
+                                        <div class="metric-value d-inline-block">
+                                            <h1 class="mb-1">10Kw/h</h1>
+                                        </div>
+                                        <div
+                                            class="metric-label d-inline-block float-right text-primary font-weight-bold">
+                                            <span><i class="fa fa-fw fa-arrow-down"></i></span><span>1.86%</span>
+                                        </div>
+                                    </div>
+                                    <div id="sparkline-revenue3"></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="card">
+                                <h5 class="card-header">Comparism Graph</h5>
+                                <div class="card-body">
+                                    <div class="ct-chart ct-golden-section" style="height: 500px;"></div>
+                                    <div class="text-center">
+                                        <span class="legend-item mr-2">
+                                            <span class="fa-xs text-primary mr-1 legend-tile"><i
+                                                    class="fa fa-fw fa-square-full"></i></span>
+                                            <span class="legend-text">Previous Year</span>
+                                        </span>
+                                        <span class="legend-item mr-2">
+
+                                            <span class="fa-xs text-secondary mr-1 legend-tile"><i
+                                                    class="fa fa-fw fa-square-full"></i></span>
+                                            <span class="legend-text">Current Year</span>
+                                        </span>
+                                    </div>
+                                    <div class="text-center mt-3 ">
+                                        <span>
+                                            <h2> Turn meter OFF/ON </h2>
+                                            
+                                            <label class="switch">
+                                                <input type="checkbox">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ============================================================== -->
+                        <!-- end customer acquistion  -->
+                        <!-- ============================================================== -->
+                    </div>
+                    <div class="row">
+
+                        <!-- ============================================================== -->
+                        <!-- top perfomimg  -->
+                        <!-- ============================================================== -->
+                        <div class="container-fluid">
+                            <h3 class="card-header">Billings</h3>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table no-wrap p-table">
+                                        <thead class="bg-light">
+                                            <tr class="border-0">
+                                                <th class="border-0">Months</th>
+                                                <th class="border-0">Watts</th>
+                                                <th class="border-0">Costs</th>
+                                                <th class="border-0">Balance</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="bg-light">
+                                                <td>January</td>
+                                                <td>98,789 </td>
+                                                <td>N40,563</td>
+                                                <td>Paid</td>
+                                            </tr>
+                                            <tr class="bg-light">
+                                                <td>Feburary</td>
+                                                <td>2,789 </td>
+                                                <td>N8,325</td>
+                                                <td>Paid</td>
+                                            </tr>
+                                            <tr class="bg-light">
+                                                <td>March</td>
+                                                <td>1,459 </td>
+                                                <td>N10,000</td>
+                                                <td>Unpaid</td>
+                                            </tr>
+                                            <tr class="bg-light">
+                                                <td>April</td>
+                                                <td>1,200</td>
+                                                <td>calculating</td>
+                                                <td>N/A</td>
+                                            </tr>
+                                            <tr class="bg-light">
+                                                <td>May</td>
+                                                <td>N/A</td>
+                                                <td>N/A</td>
+                                                <td>N/A</td>
+                                            </tr>
+                                            <tr class="bg-light">
+                                                <td>June</td>
+                                                <td>N/A</td>
+                                                <td>N/A</td>
+                                                <td>N/A</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3" class="text-center ">
+                                                    <a href="#" class="btn btn-outline-info mx-5">Details</a>
+                                                    <a href="#" class="btn btn-outline-success mx-5 ">Complain</a>
+                                                    <a href="#" class="btn btn-outline-danger mx5 ">Make Payment</a>
+
+
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ============================================================== -->
+                        <!-- end top perfomimg  -->
+                        <!-- ============================================================== -->
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <!-- ============================================================== -->
+    <!-- end wrapper  -->
+    <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- end main wrapper  -->
+    <!-- ============================================================== -->
+    <!-- Optional JavaScript -->
+    <!-- jquery 3.3.1 -->
+    <script src="assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+    <!-- bootstap bundle js -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <!-- slimscroll js -->
+    <script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+    <!-- main js -->
+    <script src="assets/libs/js/main-js.js"></script>
+    <!-- chart chartist js -->
+    <script src="assets/vendor/charts/chartist-bundle/chartist.min.js"></script>
+    <!-- sparkline js -->
+    <script src="assets/vendor/charts/sparkline/jquery.sparkline.js"></script>
+    <!-- morris js -->
+    <script src="assets/vendor/charts/morris-bundle/raphael.min.js"></script>
+    <script src="assets/vendor/charts/morris-bundle/morris.js"></script>
+    <!-- chart c3 js -->
+    <script src="assets/vendor/charts/c3charts/c3.min.js"></script>
+    <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
+    <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
+    <script src="assets/libs/js/dashboard-ecommerce.js"></script>
+</body>
+
+</html>
