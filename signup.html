@@ -7,10 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Light-Up signUp Page</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="../assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/libs/css/style.css">
-    <link rel="stylesheet" href="../assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/libs/css/style.css">
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-firestore.js"></script>
+    <script src="auth.js"></script>
     <style>
         html,
         body {
@@ -62,7 +67,8 @@
                     <input class="form-control form-control-lg" required="" placeholder="Confirm">
                 </div>
                 <div class="form-group pt-2">
-                    <button class="btn btn-block btn-primary" type="submit">Register My Account</button>
+                    <button class="btn btn-block btn-primary" type="submit" id="registrationform">Register My
+                        Account</button>
                 </div>
                 <div class="form-group">
                     <label class="custom-control custom-checkbox">
@@ -80,51 +86,34 @@
                 </div>
             </div>
             <div class="card-footer bg-white">
-                <p>Already member? <a href="login.html" class="text-secondary">Login Here.</a></p>
+                <p>Already member? <a href="index.html" class="text-secondary">index Here.</a></p>
             </div>
         </div>
     </form>
 
 
-
-    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
-
-    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-    <script src="/__/firebase/7.13.2/firebase-app.js"></script>
-
-    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-    <script src="/__/firebase/7.13.2/firebase-analytics.js"></script>
-
-    <!-- Add Firebase products that you want to use -->
-    <script src="/__/firebase/7.13.2/firebase-auth.js"></script>
-    <script src="/__/firebase/7.13.2/firebase-firestore.js"></script>
-
-    <script src="/__/firebase/init.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase-firestore.js"></script>
     <script>
-        const config = {
-            apiKey: "AIzaSyB7MbhzQ2yohv7MOjLy0rvx2n7DHvv8f5c",
-            authDomain: "light-up-eb627.firebaseapp.com",
-            databaseURL: "https://light-up-eb627.firebaseio.com",
-            projectId: "light-up-eb627",
-            storageBucket: "light-up-eb627.appspot.com",
-            messagingSenderId: "478749966375",
-            appId: "1:478749966375:web:947b648e159b438dfd0e02",
-            measurementId: "G-T3C0GSGT7B"
-        };
-        firebase.initializeApp(config);
-        // making refs
-        const auth = firebase.auth();
-        const db = firebase.firestore();
+        const signupForm = document.querySelector('#registrationform');
+        signupForm.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-        //update firestor settings
+            const username = signupForm['username'].value;
+            const email = signupForm['email'].value;
+            const password = signupForm['password'].value;
+            const position = signupForm['position'].value;
 
-        db.settings({timestampsInSnapshots: true })
+            //sign up the user
+
+            firebase.auth().createUserWithEmailAndPassword(email, password).then(cred => {
+                if (cred.a != null) {
+                    window.location = 'dashboard.html';
+                }
+                else alert('something went wrong')
+
+            })
+        })
     </script>
 
-    <script src="auth.js"></script>
 </body>
 
 

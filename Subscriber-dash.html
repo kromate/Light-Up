@@ -15,6 +15,11 @@
     <link rel="stylesheet" href="assets/vendor/fonts/material-design-iconic-font/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-firestore.js"></script>
+    <script src="auth.js"></script>
 
     <title>Light-Up</title>
 </head>
@@ -49,7 +54,8 @@
                         <li class="nav-item dropdown nav-user">
                             <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                                    src="assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
+                                    src="assets/images/avatar-1.jpg" alt=""
+                                    class="user-avatar-md rounded-circle"></a>
                             <div class="dropdown-menu dropdown-menu-right nav-user-dropdown"
                                 aria-labelledby="navbarDropdownMenuLink2">
                                 <div class="nav-user-info">
@@ -69,7 +75,7 @@
         <!-- ============================================================== -->
         <!-- end navbar -->
 
-        <div class="dashboard-wrapper">
+        <div class="dashboard-wrapper" style="margin-left: 0px;" !important>
             <div class="dashboard-ecommerce">
                 <div class="container-fluid dashboard-content ">
                     <!-- ============================================================== -->
@@ -153,7 +159,7 @@
                                     <div class="text-center mt-3 ">
                                         <span>
                                             <h2> Turn meter OFF/ON </h2>
-                                            
+
                                             <label class="switch">
                                                 <input type="checkbox">
                                                 <span class="slider round"></span>
@@ -278,6 +284,25 @@
     <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
     <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
     <script src="assets/libs/js/dashboard-ecommerce.js"></script>
+
+   
+    <script>
+        auth.onAuthStateChanged(user => {
+            console.log(user);
+            if (user == null) {
+                window.location = 'index.html'
+            }
+            else {
+                window.location = 'Subscriber-dash.html'
+                break
+            }
+            break;
+        })
+
+    </script>
+
+
+
 </body>
 
 </html>
